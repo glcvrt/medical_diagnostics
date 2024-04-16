@@ -1,0 +1,35 @@
+{% extends 'diagnostics/base.html' %}
+{% load static %}
+{% block content %}
+
+
+ <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Наши услуги</h1>
+        <p class="lead text-body-secondary">Запись производится по номеру +7 950 000 11 22</p>
+      </div>
+    </div>
+  </section>
+
+
+<div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% for object in object_list %}
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">{{ object.title }}</h5>
+                <p class="card-text">{{ object.description }}</p>
+                <p class="card-text">Стоимость: {{ object.price }} руб.</p>
+
+              </div>
+            </div>
+        </div>
+        {% endfor %}
+      </div>
+</div>
+
+
+{% endblock %}

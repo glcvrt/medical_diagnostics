@@ -1,0 +1,29 @@
+{% load static %}
+
+<header>
+    <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+          <img src="{% static 'icons/mKHIYHvD3bQ.jpg' %}" width="35" height="32" alt="icon">
+        <span class="fs-4">Медицинская диагностика</span>
+      </a>
+
+
+    <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+        <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'diagnostics:home_page'%}">Главная</a>
+        <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'diagnostics:doctors' %}">Наши врачи</a>
+        <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'diagnostics:diagnostic_list' %}">Наши услуги</a>
+    </nav>
+
+    <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+        {% if user.is_authenticated %}
+          <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'user:logout'%}">Выйти</a>
+          <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'user:profile'%}">Личный кабинет</a>
+        {% else %}
+          <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'user:login'%}">Войти</a>
+          <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'user:register'%}">Регистрация</a>
+        {% endif %}
+    </nav>
+
+    </div>
+
+  </header>

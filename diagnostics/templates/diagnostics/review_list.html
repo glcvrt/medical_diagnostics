@@ -1,0 +1,39 @@
+{% extends 'diagnostics/base.html' %}
+
+{% block content %}
+
+
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Отзывы</h1>
+      </div>
+    </div>
+</section>
+
+{% if user.is_authenticated %}
+  <div class="col-12 mb-3">
+    <a class="btn btn-outline-primary" href="{% url 'diagnostics:review_create' %}">Оставить отзыв</a>
+    {% else %}
+    <p class="lead text-body-secondary">Авторизуйтесь чтобы оставить отзыв</p>
+{% endif %}
+  </div>
+
+{% for object in object_list %}
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{ object.user }}</h5>
+      <p class="card-text">{{ object.text }}</p>
+      {% if object.user == user %}
+      <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+        <a href="{% url 'diagnostics:review_update' object.pk %}" class="btn btn-outline-primary">Изменить</a>
+        <a href="{% url 'diagnostics:review_delete' object.pk %}" class="btn btn-outline-primary">Удалить</a>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}

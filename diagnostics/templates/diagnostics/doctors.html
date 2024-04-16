@@ -1,0 +1,41 @@
+{% extends 'diagnostics/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Наши специалисты</h1>
+        <p class="lead text-body-secondary">Запись на приём производится по номеру +7 950 000 11 22</p>
+      </div>
+    </div>
+</section>
+
+{% for object in object_list %}
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{% static 'icons/1673499692_gas-kvas-com-p-risunok-detskii-doktor-13.jpg' %}" width="179.33" height="250" alt="icon">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ object.fio }}</h5>
+        {% if object.experience > 4 %}
+        <p class="card-text">{{ object.directions }}.
+        Стаж {{ object.experience }} лет</p>
+        <p class="card-text"> Часы приёма:</p>
+        <p class="card-text">{{ object.timing }}</p>
+        {% else %}
+        <p class="card-text">{{ object.directions }}.
+        Стаж {{ object.experience }} года</p>
+        <p class="card-text"> Часы приёма:</p>
+        <p class="card-text">{{ object.timing }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}

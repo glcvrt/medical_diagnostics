@@ -1,0 +1,21 @@
+{% extends 'diagnostics/base.html' %}
+
+{% block content %}
+<form class="col-12">
+        <form class="row" method="post" enctype="multipart/form-data">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="post">
+                            {% csrf_token %}
+                            <p>Вы уверены, что хотите удалить "{{ object.text }}"?</p>
+                            <button type="submit" class="btn btn-danger"> Удалить </button>
+                            <a href="{% url 'diagnostics:review_list' %}" class="btn btn-warning"> Отмена </a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </form>
+    <form>
+{% endblock %}

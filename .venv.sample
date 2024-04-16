@@ -1,0 +1,10 @@
+SECRET_KEY='django-insecure-g4q5rtqy9r@#9cphl&z0m=mbj+gfcg(g8epwt&ux@*50z!2wz*'
+
+DB_NAME='medical_diagnostics'
+DB_USER='postgres'
+DB_PASSWORD='i1485563'
+
+
+EMAIL_PORT=465
+EMAIL_HOST_USER='i1472138@yandex.ru'
+EMAIL_HOST_PASSWORD='tmbqjwvzzqeofhxa'

@@ -1,0 +1,25 @@
+{% extends 'diagnostics/base.html' %}
+{% load static %}
+{% block content %}
+<img src="{% static 'icons/123.jpg' %}" class="img-fluid" width="1680" height="776">
+
+  <div class="album py-5 bg-body-tertiary">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% for object in object_list %}
+        <div class="col">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <p class="card-text">{{object.title}}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="{% url 'diagnostics:directions_detail' object.pk %}" class="btn btn-outline-primary" type="button" >Подробнее</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+{% endblock %}
