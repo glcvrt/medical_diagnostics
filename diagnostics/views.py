@@ -1,6 +1,4 @@
-from datetime import datetime
-
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.http import Http404
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DeleteView, DetailView, CreateView, UpdateView

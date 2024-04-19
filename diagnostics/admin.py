@@ -25,5 +25,3 @@ class DiagnosticAdmin(admin.ModelAdmin):
 class ReviewAdmin(admin.ModelAdmin):
     list_display = ('text', 'user',)
     list_filter = ('user',)
-
-

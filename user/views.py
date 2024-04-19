@@ -1,5 +1,3 @@
-import random
-
 from django.conf import settings
 from django.contrib.auth import logout, login
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -18,7 +16,6 @@ from user.forms import UserRegisterForm, UserProfileForm
 from user.models import User
 
 from django.utils.translation import gettext_lazy as _
-
 
 
 def users(request):
@@ -42,12 +39,10 @@ class UserLogout(LogoutView):
     def post(self, request, *args, **kwargs):
         """Logout may be done via POST."""
         logout(request)
-        redirect_to = 'home_page'
         return super().get(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        current_site = 'home_page'
         context.update(
             {
                 "site": 'home_page',

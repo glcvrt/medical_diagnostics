@@ -28,5 +28,3 @@ urlpatterns = [
     path('review_update/<int:pk>/', ReviewUpdateView.as_view(), name='review_update'),
     path('review_delete/<int:pk>/', ReviewDeleteView.as_view(), name='review_delete'),
 ]
-
-
